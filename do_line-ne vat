@@ -1,0 +1,299 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="robocarv2" id="W)G8Bmh:M@|=6gALR5+3" x="-376" y="-121">
+    <next>
+      <block type="controls_if" id="w1pJ|CJDP}rvg34h;D:~">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id=";2,4@YL{MV~;ectX-p.e">
+            <field name="OP">LTE</field>
+            <value name="A">
+              <block type="kcbot_ultrasonic" id="gC#W5YCI{4ST=8*qZstu">
+                <value name="trig">
+                  <shadow type="math_number" id="6l0L=Fl%ON{FL^+_f3x%">
+                    <field name="NUM">2</field>
+                  </shadow>
+                </value>
+                <value name="echo">
+                  <shadow type="math_number" id="CG|D,vN_R-}XEN~zEZpv">
+                    <field name="NUM">12</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="N6qI:lUJ7[IN)N?b|,S3">
+                <field name="NUM">20</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="kcbot_motor" id="oj~eyZG5cp(wUy/K#R.G">
+            <field name="MOTOR">0</field>
+            <value name="SPEED">
+              <block type="math_number" id="VTYdKp#Hg!ql4[BycjOs">
+                <field name="NUM">255</field>
+              </block>
+            </value>
+            <next>
+              <block type="kcbot_motor" id="cJrlyl;9.fvHU6o9rk!M">
+                <field name="MOTOR">1</field>
+                <value name="SPEED">
+                  <block type="math_number" id="FSjydj{kyr!7LEDr?h2L">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="time_delay" id=")?~fQI3K5B*az_Q3KFUR">
+                    <value name="DELAY_TIME_MILI">
+                      <block type="math_number" id="L,_;L^z%bzjEZA?o3/|=">
+                        <field name="NUM">500</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_whileUntil" id="_i;Q-a9P?@5uwFMnq~jc">
+                        <field name="MODE">UNTIL</field>
+                        <value name="BOOL">
+                          <block type="logic_operation" id="%W:~h38ila4@.wg[0^^[">
+                            <field name="OP">OR</field>
+                            <value name="A">
+                              <block type="logic_compare" id=";]FUEA0)6(OSc:`rk|PC">
+                                <field name="OP">GTE</field>
+                                <value name="A">
+                                  <block type="io_analogread" id="HaJ%t^2dK%c;V;t4ntjl">
+                                    <field name="PIN">A6</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="7ZKO1m:IReZAS8bL*i*p">
+                                    <field name="NUM">850</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="logic_compare" id="gx6b5q]WveL,rBhM~/^[">
+                                <field name="OP">GTE</field>
+                                <value name="A">
+                                  <block type="io_analogread" id="MBaZ,_@vqTwH^R3+}H=h">
+                                    <field name="PIN">A7</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="math_number" id="+GIIH`m`27^v9/,:]5rk">
+                                    <field name="NUM">850</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="kcbot_motor" id="-Nkz=Don6+yK/U{-:J?!">
+                            <field name="MOTOR">0</field>
+                            <value name="SPEED">
+                              <block type="math_number" id="WE`_KfllZ`_fO2qq*{@C">
+                                <field name="NUM">150</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="kcbot_motor" id="?*AtVXn9@YUn~GU=M,N6">
+                                <field name="MOTOR">1</field>
+                                <value name="SPEED">
+                                  <block type="math_number" id=":9[eipMLL,e9;ivUni@|">
+                                    <field name="NUM">255</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="controls_if" id="J-Bt;8fsQ(QnUkBSJ_(u">
+            <value name="IF0">
+              <block type="logic_operation" id="6Nu7Sq7N@^%E;wxBFmVm">
+                <field name="OP">OR</field>
+                <value name="A">
+                  <block type="logic_compare" id="(]HOIK~k4fG,4*h7I`XP">
+                    <field name="OP">GTE</field>
+                    <value name="A">
+                      <block type="io_analogread" id="aXp~Egcd.4/Bm/QMN:nI">
+                        <field name="PIN">A6</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="*~JSURC[k}2Q@srZ0o%E">
+                        <field name="NUM">850</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="logic_compare" id="0Q3eEzw=VCyVdgwP`@Bg">
+                    <field name="OP">GTE</field>
+                    <value name="A">
+                      <block type="io_analogread" id="iBZr8KOFrI/GvR;+rtSi">
+                        <field name="PIN">A7</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="vE%*PksrNnU1Cy0oMiEQ">
+                        <field name="NUM">850</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="kcbot_motor" id="?CFsepVEyY]@g;vGHTxK">
+                <field name="MOTOR">0</field>
+                <value name="SPEED">
+                  <block type="math_number" id="]QqD~fmpgHq@^%wH+xir">
+                    <field name="NUM">255</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="kcbot_motor" id="]em4~qhTPk;:4(Sr5Yu9">
+                    <field name="MOTOR">1</field>
+                    <value name="SPEED">
+                      <block type="math_number" id="qaUjg}z(QuTdk9whs[qe">
+                        <field name="NUM">255</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="controls_if" id="_G!Srbl1shqeSO!r1eFX">
+                <value name="IF0">
+                  <block type="logic_operation" id="ZAFz{u0%~E,R.5i1~[+q">
+                    <field name="OP">AND</field>
+                    <value name="A">
+                      <block type="logic_compare" id="XZtLGzU_?tbefXn)3~BG">
+                        <field name="OP">LTE</field>
+                        <value name="A">
+                          <block type="io_analogread" id="XsRXCaU,4sI0!10cQjF7">
+                            <field name="PIN">A6</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="H7Kw;Th51GUsun5b|U*b">
+                            <field name="NUM">850</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="logic_compare" id="Bq7v-u`n-cg*Vb=4c6~8">
+                        <field name="OP">GT</field>
+                        <value name="A">
+                          <block type="io_analogread" id="YQW]=?gDmhwfNtPjm[Ey">
+                            <field name="PIN">A4</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="jWGyX?=fY-A}_]*Dc%BR">
+                            <field name="NUM">850</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="kcbot_motor" id="axe][3bc-4eqXF@d78%h">
+                    <field name="MOTOR">0</field>
+                    <value name="SPEED">
+                      <block type="math_number" id="raD5Z@jnRq?HcUJx!!t4">
+                        <field name="NUM">255</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="kcbot_motor" id="]HiHTbhCPgaj)rzUmQgp">
+                        <field name="MOTOR">1</field>
+                        <value name="SPEED">
+                          <block type="math_number" id="5GZE(S]XMw^35kp=g;yO">
+                            <field name="NUM">100</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_if" id="ILkSx5YLn^@;#6X/ML%T">
+                    <value name="IF0">
+                      <block type="logic_operation" id="5AyncJ,HLljLB5o]JK@G">
+                        <field name="OP">AND</field>
+                        <value name="A">
+                          <block type="logic_compare" id="oQhFMaRKMUmA8dR7y?sr">
+                            <field name="OP">LTE</field>
+                            <value name="A">
+                              <block type="io_analogread" id="4wwu|Q)wSgz!dz|`V-^_">
+                                <field name="PIN">A7</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id="9H8}v,[]U,0eW~uv_O`0">
+                                <field name="NUM">850</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="logic_compare" id=")Bf{T-6O2TEt%|_~NrO_">
+                            <field name="OP">GT</field>
+                            <value name="A">
+                              <block type="io_analogread" id="|l6`|Jb:G}cz:a8EEoiP">
+                                <field name="PIN">A5</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number" id=",XXXC_#t8`K=`d5Zl(W-">
+                                <field name="NUM">850</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="kcbot_motor" id="2Rs`YUswL*tvjVYnkI=E">
+                        <field name="MOTOR">0</field>
+                        <value name="SPEED">
+                          <block type="math_number" id="UUv|n3]51K98zQKWI1.?">
+                            <field name="NUM">100</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="kcbot_motor" id="=k`[ri~;.QTjJa[@oyO=">
+                            <field name="MOTOR">1</field>
+                            <value name="SPEED">
+                              <block type="math_number" id="3~fiIu!jafzeuLFu#kj[">
+                                <field name="NUM">255</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
